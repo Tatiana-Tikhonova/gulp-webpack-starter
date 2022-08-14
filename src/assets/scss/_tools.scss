@@ -63,38 +63,43 @@ $gap: math.div(24, 2) + px;
 @import "_icons";
 
 // ================================mixins
-@mixin before {
-	&::before {
-		content: "";
-		position: absolute;
-		top: -7px;
-		left: 20px;
-		border-left: 9px solid transparent;
-		border-right: 9px solid transparent;
-		border-bottom: 9px solid $color-white;
-	}
+/*
+создание треугольника
+размеры и форма треугольника зависят от толщины бордера с каждой стороны
+*/
+@mixin triangle($size, $side, $clr) {
+	border-width: $size;
+	border-style: solid;
+	border-color: transparent;
+	border-#{$side}-color: $clr;
 }
 
+// ширина элемента в % от родителя
 @mixin percentage-width($el-width, $parent-width) {
 	width: math.div($el-width, $parent-width) * 100%;
 }
 
+// любое свойство + значение элемента в % от родителя
 @mixin percentage-value($property, $el-width, $parent-width) {
 	#{$property}: math.div($el-width, $parent-width) * 100%;
 }
 
+// максимальная ширина элемента в % от родителя
 @mixin percentage-max-width($el-width, $parent-width) {
 	max-width: math.div($el-width, $parent-width) * 100%;
 }
 
+// flex-basis элемента в % от родителя
 @mixin percentage-flex($el-width, $parent-width) {
 	flex-basis: math.div($el-width, $parent-width) * 100%;
 }
 
+// ширина элемента в % от родителя по кол-ву колонок, которые он занимает в макете
 @mixin columns-width($columns) {
 	width: math.div(100%, $columns);
 }
 
+// миксины для флексов
 @mixin row-margins() {
 	margin-left: -$gap;
 	margin-right: -$gap;
@@ -105,11 +110,20 @@ $gap: math.div(24, 2) + px;
 	padding-right: $gap;
 }
 
+@mixin col-margins() {
+	margin-left: $gap;
+	margin-right: $gap;
+}
+
+//=====================================Functions==========================================
+// функция для перевода размера из пикселей в em
 @function em($sz, $fsz) {
 	$val: math.div($sz, $fsz)+em;
 	@return $val;
 }
 
+
+// функция для перевода размера из пикселей в rem
 @function rem($sz, $rem) {
 	$val: math.div($sz, $rem)+rem;
 	@return $val;
