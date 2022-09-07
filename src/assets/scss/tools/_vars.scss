@@ -1,0 +1,46 @@
+// встроенный математический модуль scss
+@use "sass:math" as math;
+// ===========================переменные
+// шрифты
+$mainFont: "Roboto-Regular", sans-serif;
+// корневой размер шрифта для тега html и функции rem()
+$rem: 16;
+// цвета
+$clr-black: #231f20;
+$clr-white: #ffffff;
+$clr-red: #ec2b2f;
+$clr-blue: #0073b7;
+// $hover-blue: #379edb;
+$hover-blue: darken(#0073b7, 7%);
+$hover-red: darken(#ec2b2f, 7%);
+
+$shadow-blue: 4px 8px 10px rgba(0, 115, 183, 0.15);
+$shadow-light: 0px 0px 10px rgba(35, 31, 32, 0.1);
+
+$border-radius: 5px;
+$transition: 0.3s;
+
+// экран 
+$minwidth: 320px;
+$maxScreenWidth: 1920px;
+// максимальная ширина контейнера
+$maxContainerWidth: 1320px;
+// брейкпойнты по минимальной ширине (mobile first)
+$mi1: 1400px;
+$mi2: 1200px;
+$mi3: 992px;
+$mi4: 768px;
+$mi5: 576px;
+$mi6: 480px;
+// брейкпойнты по максимальной ширине (desktop first)
+$mx1:1399px;
+$mx2:1199px;
+$mx3:991px;
+$mx4:767px;
+$mx5:575px;
+$mx6:479px;
+
+// боковые поля
+$fields: 12px;
+// половина межколоночника
+$gap: math.div(24, 2) + px;

@@ -1,0 +1,29 @@
+.container {
+    margin: 0 auto;
+	width: 100%;
+	padding: 0px $gap;
+
+	@media (min-width:$mi1) {
+        max-width: $maxContainerWidth;
+		
+	}
+
+	@media (min-width:$mi2) {
+        max-width: 1140px;
+		
+	}
+
+	@media (min-width:$mi3) {
+        max-width: 960px;
+	}
+
+	@media (min-width:$mi4) {
+		max-width: 720px;
+		
+	}
+
+	@media (min-width: $mi5) {
+		max-width: 540px;
+
+	}
+}

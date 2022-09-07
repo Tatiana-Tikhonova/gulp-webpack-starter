@@ -1,0 +1,15 @@
+// встроенный математический модуль scss
+@use "sass:math" as math;
+//=====================================Functions==========================================
+// функция для перевода размера из пикселей в em
+@function em($sz, $fsz) {
+	$val: math.div($sz, $fsz)+em;
+	@return $val;
+}
+
+
+// функция для перевода размера из пикселей в rem
+@function rem($sz, $rem) {
+	$val: math.div($sz, $rem)+rem;
+	@return $val;
+}

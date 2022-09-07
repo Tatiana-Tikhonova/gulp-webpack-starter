@@ -1,8 +1,9 @@
+
 .header {
     position: relative;
     width: 100%;
     padding: 20px 0;
-    background: $color-white;
+    background: $clr-white;
 
     &::before {
         content: '';
@@ -14,7 +15,7 @@
         right: 0;
         bottom: 0;
         z-index: 3;
-        background: $color-white;
+        background: $clr-white;
     }
 
     &__container {
@@ -33,7 +34,7 @@
         position: relative;
         z-index: 4;
 
-        @media (max-width:$md4) {
+        @media (max-width: $mx4) {
             position: fixed;
             top: 0;
             right: -150%;
@@ -60,9 +61,9 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background: $color-white;
+    background: $clr-white;
 
-    @media (max-width:$md4) {
+    @media (max-width: $mx4) {
         display: block;
         padding: 80px 20px 20px;
     }
@@ -78,7 +79,7 @@
             padding-right: 0;
         }
 
-        @media (max-width:$md4) {
+        @media (max-width: $mx4) {
             margin-left: 0;
         }
 
@@ -90,24 +91,24 @@
         padding-left: 10px;
         font-family: $mainFont;
         font-size: 18px;
-        color: $color-black;
+        color: $clr-black;
         transition: $transition;
 
         &.active {
-            color: $color-red;
+            color: $clr-red;
 
             +svg {
-                fill: $color-red;
+                fill: $clr-red;
             }
         }
 
 
         @media (min-width:992px) {
             &:hover {
-                color: $color-red;
+                color: $clr-red;
 
                 +svg {
-                    fill: $color-red;
+                    fill: $clr-red;
                 }
             }
 
@@ -129,7 +130,7 @@
         left: 0;
         z-index: 1;
 
-        @media (max-width:$md4) {
+        @media (max-width: $mx4) {
             position: static;
 
         }
@@ -145,13 +146,13 @@
     svg {
         flex: 0 0 10px;
         margin-left: 3px;
-        fill: $color-black;
+        fill: $clr-black;
         transition: $transition;
     }
 }
 
 .submenu {
-    background: $color-white;
+    background: $clr-white;
     box-shadow: $shadow-light;
     opacity: 0;
     pointer-events: none;
@@ -162,7 +163,7 @@
         pointer-events: auto;
     }
 
-    @media (max-width:$md4) {
+    @media (max-width: $mx4) {
         display: block;
         width: 100%;
         opacity: 1;
@@ -177,7 +178,7 @@
         min-width: 120px;
         padding: 10px 10px 10px 0px;
 
-        @media (max-width:$md4) {
+        @media (max-width: $mx4) {
             padding-right: 0;
         }
     }
@@ -185,7 +186,7 @@
     svg {
         transform: rotate(-90deg);
 
-        @media (max-width:$md4) {
+        @media (max-width: $mx4) {
             transform: rotate(0deg);
         }
     }
@@ -197,7 +198,7 @@
     position: relative;
     z-index: 3;
 
-    @media (max-width: $md4) {
+    @media (max-width: $mx4) {
         display: block;
         padding: 10px 0px 10px 10px;
         background-color: transparent;
@@ -208,7 +209,7 @@
             width: 20px;
             height: 2px;
             margin: 3px;
-            background-color: $color-black;
+            background-color: $clr-black;
             opacity: 1;
             transform: scale(1);
             transform: translate(0px, 0px) rotate(0deg);
@@ -218,7 +219,7 @@
 }
 
 .menu-button.active {
-    @media (max-width: $md4) {
+    @media (max-width: $mx4){
         span {
             &:first-child {
                 transform: translate(0px, 4px) rotate(45deg);

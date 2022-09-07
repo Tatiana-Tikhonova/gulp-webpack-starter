@@ -1,121 +1,23 @@
-// =============================сброс
-@import "_tools" ;
-@import "_reset";
+// подключение переменных, миксинов и функций scss
+@use 'tools/_tools' as *;
 
+// подключение шрифтов
+@import "parts/base/_fonts";
+
+// подключение css переменных
+@import "parts/base/_root";
+
+// сброс стилей
+@import "parts/base/_reset";
+
+// подключение стилей иконочного шрифта
+@import "parts/base/_icons";
 
 // сетка для отладки
-.grid-debug {
-	display: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 9999999;
+@import "parts/base/_debug";
 
-	.grid-debug__container {
-		width: 100%;
-		height: 100%;
-		max-width: $maxContainerWidth;
-		margin: 0 auto;
-		padding: 0px $gap;
-		display: grid;
-		grid-template-columns: [start-container]repeat(12, 1fr) [end-container];
-		grid-column-gap: $gap;
+// общие стили
+@import "parts/_general";
 
-		@media (max-width:$md1) {
-			max-width: 1140px;
-		}
-
-		@media (max-width:$md2) {
-			max-width: 960px;
-		}
-
-		@media (max-width:$md3) {
-			max-width: 720px;
-		}
-
-		@media (max-width:$md4) {
-			max-width: 540px;
-		}
-
-		@media (max-width: $md5) {
-			max-width: none;
-		}
-
-	}
-}
-
-// ==============================главные параметры
-
-
-body {
-	background-color: var(--clr-white, $clr-white);
-	font-family: $mainFont;
-	font-size: 16px;
-	line-height: 130%;
-	color: $clr-black;
-
-	&.lock {
-		overflow: hidden;
-	}
-}
-
-.site-wrapper {
-	position: relative;
-	width: 100%;
-	min-height: 100%;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-}
-
-.site-main {
-	flex: 1 1 auto;
-
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin-bottom: 2.5em;
-}
-
-p {
-	margin-bottom: 1.4em;
-}
-
-// ================================сетка
-.container {
-	max-width: $maxContainerWidth;
-	margin: 0 auto;
-	width: 100%;
-	padding: 0px $gap;
-
-	@media (max-width:$md1) {
-		max-width: 1140px;
-	}
-
-	@media (max-width:$md2) {
-		max-width: 960px;
-	}
-
-	@media (max-width:$md3) {
-		max-width: 720px;
-	}
-
-	@media (max-width:$md4) {
-		max-width: 540px;
-	}
-
-	@media (max-width: $md5) {
-		max-width: none;
-
-	}
-}
-
-// ============================================стили секций=============================
-@import "_header";
+// хэдер
+@import "parts/header";
