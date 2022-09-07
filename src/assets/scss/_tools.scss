@@ -1,25 +1,32 @@
 // встроенный математический модуль scss
-@use "sass:math";
-// ===========================переменные
+@use "sass:math" as math;
+// ===========================подключение шрифтов
 
-$minwidth: 320px;
-$maxScreenWidth: 1920px;
-$maxwidth: 1360px;
-$md1: $maxwidth;
-$md2: 1200px;
-$md3: 1000px;
-$md4: 768px;
-$md5: 576px;
-$md6: 480px;
+@mixin fonts($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff") format("woff"),
+		url("../fonts/#{$file_name}.woff2") format("woff2");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+
+@import "_fonts";
+
+// подключение стилей иконочного шрифта
+@import "_icons";
+// ===========================переменные
 // шрифты
 $mainFont: "Roboto-Regular", sans-serif;
 // корневой размер шрифта для тега html и функции rem()
-$rem: 14;
+$rem: 16;
 // цвета
-$color-black: #231f20;
-$color-white: #ffffff;
-$color-red: #ec2b2f;
-$color-blue: #0073b7;
+$clr-black: #231f20;
+$clr-white: #ffffff;
+$clr-red: #ec2b2f;
+$clr-blue: #0073b7;
 // $hover-blue: #379edb;
 $hover-blue: darken(#0073b7, 7%);
 $hover-red: darken(#ec2b2f, 7%);
@@ -44,23 +51,64 @@ $md6: 480px;
 $fiels: 12px;
 // половина межколоночника
 $gap: math.div(24, 2) + px;
-// ===========================подключение шрифтов
+// если нужна поддержка браузеров не понимающих css vars ( с откатом)
+/**
+значения разделенные запятыми внутри scss map вызывают ошибку компиляции
+поэтому создаем для них отдельные переменные, а потом присваиваем эти переменные
+в качестве значений для ключей scss map
+*/
+// $ff-header: "Roboto-Bold", sans-serif;
+// $ff-medium: "Roboto-Medium", sans-serif;
+// $ff-main: "Roboto-Regular", sans-serif;
+// // scss map obj
+// $vars :(ff-header: $headerFont,
+//     ff-medium: $ff-medium,
+//     ff-main: $ff-main,
+//     clr-text: #151a1b,
+//     clr-primary: #509900,
+//     clr-accent: #f84e1d,
+//     clr-dark: #364446,
+//     clr-dark-lighten: lighten(#364446, 30%),
+//     clr-light: #ffffff,
+//     shadow-primary: 0px 0px 10px rgba(80, 153, 0, 0.7),
+// );
 
-@mixin fonts($font_name, $file_name, $weight, $style) {
-	@font-face {
-		font-family: $font_name;
-		font-display: swap;
-		src: url("../fonts/#{$file_name}.woff") format("woff"),
-		url("../fonts/#{$file_name}.woff2") format("woff2");
-		font-weight: #{$weight};
-		font-style: #{$style};
-	}
+// :root {
+
+//     @each $prop,
+//     $val in $vars {
+//         --#{$prop}: #{$val};
+//     }
+// }
+
+// @mixin var($prop, $variable) {
+//     #{$prop}: map-get($vars, $variable);
+//     #{$prop}: var(--#{$variable});
+// }
+
+// если поддерживаем только нормальные браузеры
+:root {
+    --ff-header: "Roboto-Bold", sans-serif;
+    --ff-medium: "Roboto-Medium", sans-serif;
+    --ff-main: "Roboto-Regular", sans-serif;
+    --clr-text: #151a1b;
+    --clr-primary: #509900;
+    --clr-accent: #f84e1d;
+    --clr-dark: #364446;
+    --clr-dark-lighten: lighten(#364446, 30%);
+    --clr-light: #ffffff;
+    --light-blue-grey: #d7e0e2;
+    --clr-woo-green: #0f834d;
+    --clr-woo-blue: #3d9cd2;
+    --clr-woo-orange: #e2401c;
+    --clr-woo-red: #f00;
+    --shadow-block: 0px 0px 10px rgba(54, 68, 70, 0.2);
+    --shadow-primary: 0px 0px 10px rgba(80, 153, 0, 0.7);
+    --shadow-accent: 0px 0px 10px rgba(248, 78, 29, 0.7);
+    --fz-text: 1rem;
+    --fz-h1: 4rem;
 }
 
-@import "_fonts";
-
-// подключение стилей иконочного шрифта
-@import "_icons";
 
 // ================================mixins
 /*

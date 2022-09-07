@@ -1,41 +1,6 @@
 // =============================сброс
-@use "_tools" as *;
+@import "_tools" ;
 @import "_reset";
-
-
-
-
-// ==============================главные параметры
-:root {
-	accent-color: hotpink;
-	--clr-white: #fff;
-}
-
-body {
-	background-color: var(--clr-white);
-	font-family: $mainFont;
-	font-size: 16px;
-	line-height: 130%;
-	color: $color-black;
-
-	&.lock {
-		overflow: hidden;
-	}
-}
-
-.site-wrapper {
-	position: relative;
-	width: 100%;
-	min-height: 100%;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-}
-
-.site-main {
-	flex: 1 1 auto;
-}
-
 
 
 // сетка для отладки
@@ -81,6 +46,35 @@ body {
 	}
 }
 
+// ==============================главные параметры
+
+
+body {
+	background-color: var(--clr-white, $clr-white);
+	font-family: $mainFont;
+	font-size: 16px;
+	line-height: 130%;
+	color: $clr-black;
+
+	&.lock {
+		overflow: hidden;
+	}
+}
+
+.site-wrapper {
+	position: relative;
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.site-main {
+	flex: 1 1 auto;
+
+}
+
 h1,
 h2,
 h3,
@@ -119,6 +113,7 @@ p {
 
 	@media (max-width: $md5) {
 		max-width: none;
+
 	}
 }
 
